@@ -1,0 +1,42 @@
+Biếu diễn danh sách kề
+
+vector< vector<int> > a;
+int n,m; // n đỉnh m cạnh
+cin >> n >> m;
+while (m--)
+{
+  int u,v; cin>>u>>v;
+  a[u].push_back(v); a[v].push_back(u);
+}
+
+I/ duyệt DFS
+
+fill(f,0);
+int s,t; cin >> s >> t;
+
+// duyet dfs
+
+void dfs (int s) 
+{ 
+   if (s==t) return;
+   f[s] = 1; d += 1;  
+   for (auto ir : a[s])
+   {
+     if ( !f[ir] ) 
+     {
+       trace[s] = x; dfs(x);
+     }
+   }
+   
+   void print ()
+   {
+      if ( !f[t] )
+      {
+        cout<<"no path\n";
+        return;
+      }
+      
+      for (int x = s; x != t; x = trace[x]) cout<<x<<' '; cout<<t<<"\n";
+   }
+       
+  
