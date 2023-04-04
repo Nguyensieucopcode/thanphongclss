@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define int long long 
+#define int long long
 const int N = 257;
 vector< vector<int> > a(N);
 bool f[N+7];
@@ -33,6 +33,7 @@ signed main()
     {
         int u,v; cin>>u>>v;
         a[u].push_back(v);
+        a[v].push_back(u);
     }
     dfs(1);
     vector<int> v;
