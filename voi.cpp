@@ -6,7 +6,7 @@ using namespace std;
 const int N = 1e2+7;
 int a1[4]={-1,0,1,0};
 int a2[4]={0,-1,0,1};
-int h[N+7][N+7],l[N+7][N+7],f[N+7][N+7],ans[N+7],n,m,k,dem;
+int h[N+7][N+7],l[N+7][N+7],f[N+7][N+7],ans[N+7],n,m,k,dem,ps1,ps2;
 
 void read_input(int n, int m)
 {
@@ -20,7 +20,10 @@ void read_input(int n, int m)
 		for (int j=1; j<=m; j++) 
 		{
 			cin>>l[i][j];
-			if (l[i][j]) k++;
+			if (l[i][j]) 
+			{
+				ps1=i,ps2=j; k++;
+			}
 		}
 	}
 }
@@ -46,7 +49,7 @@ bool check(int val)
 {
 	dem=0;
 	memset(f,0,sizeof(f));
-	dfs(1,1,h[1][1],val);
+	dfs(ps1,ps2,h[ps1][ps2],val);
 	return dem==k;
 }
 
